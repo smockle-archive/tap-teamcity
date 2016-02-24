@@ -1,0 +1,29 @@
+# scripts that are called at very beginning, before repo cloning
+init:
+  - git config --global core.autocrlf input
+
+# build cache to preserve files/folders between builds
+cache:
+  - C:\Users\appveyor\AppData\Roaming\npm\node_modules -> package.json  # global npm modules
+  - C:\Users\appveyor\AppData\Roaming\npm-cache -> package.json         # npm cache
+  - node_modules -> package.json                                        # local npm modules
+
+# scripts that run after cloning repository
+install:
+  # Install node 4.3.1
+  - ps: Install-Product node 4.2
+  # Install npm 3.7.2
+  - npm install -g npm@3.7.2
+  # install modules
+  - npm install
+
+# to run your custom scripts instead of automatic tests
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # run tests
+  - npm test
+
+# Don't build with msbuild.
+build: off
