@@ -51,7 +51,12 @@ Logger.prototype.startAssertion = function (assertion) {
  * Logs assertion failed
  */
 Logger.prototype.failAssertion = function () {
-  this.output.push(`\n##teamcity[testFailed name='${this.assertion.name}']`)
+  var output = `testFailed name='${this.assertion.name}'`;
+  if (this.assertion.error) {
+        output = `${output} expected='${this.assertion.error.expected}' actual='${this.assertion.error.actual}'`
+  }
+
+  this.output.push(`\n##teamcity[${output}]`)
 }
 
 /**
