@@ -93,6 +93,27 @@ test('Logger.prototype.failAssertion', (t) => {
     'pushes assertion fail string to output stream')
 })
 
+test('Logger.prototype.failAssertion with quotes', (t) => {
+  t.plan(1)
+  var result = ''
+  const output = through()
+  output.on('data', (d) => { result += d })
+  const logger = Logger(output)
+  const assertion = {
+      name: 'AssertionName',
+      error: {expected: 'expected\' quotes\'', actual: 'actual \' with \' quotes'}
+  }
+  logger.startAssertion(assertion)
+  result = ''
+  logger.failAssertion()
+
+  // 13
+  t.equal(
+    result,
+    `\n##teamcity[testFailed name='${assertion.name}' expected='expected|' quotes|'' actual='actual |' with |' quotes']`,
+    'escapes quotes')
+})
+
 test('Logger.prototype.failAssertion without error', t => {
   t.plan(1)
   var result = ''

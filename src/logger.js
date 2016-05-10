@@ -51,9 +51,11 @@ Logger.prototype.startAssertion = function (assertion) {
  * Logs assertion failed
  */
 Logger.prototype.failAssertion = function () {
-  var output = `testFailed name='${this.assertion.name}'`;
-  if (this.assertion.error) {
-        output = `${output} expected='${this.assertion.error.expected}' actual='${this.assertion.error.actual}'`
+  var output = `testFailed name='${this.assertion.name}'`
+  if (this.assertion.error && this.assertion.error.expected && this.assertion.error.actual) {
+        const expected = this.assertion.error.expected.replace(/'/g, '|\'')
+        const actual = this.assertion.error.actual.replace(/'/g, '|\'')
+        output = `${output} expected='${expected}' actual='${actual}'`
   }
 
   this.output.push(`\n##teamcity[${output}]`)
