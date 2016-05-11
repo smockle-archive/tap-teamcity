@@ -89,7 +89,7 @@ test('Logger.prototype.failAssertion', (t) => {
   // 13
   t.equal(
     result,
-    `\n##teamcity[testFailed name='${assertion.name}' expected='${assertion.error.expected}' actual='${assertion.error.actual}']`,
+    `\n##teamcity[testFailed name='${assertion.name}' type='comparisonFailure' expected='${assertion.error.expected}' actual='${assertion.error.actual}']`,
     'pushes assertion fail string to output stream')
 })
 
@@ -110,7 +110,7 @@ test('Logger.prototype.failAssertion with quotes', (t) => {
   // 13
   t.equal(
     result,
-    `\n##teamcity[testFailed name='${assertion.name}' expected='expected|' quotes|'' actual='actual |' with |' quotes']`,
+    `\n##teamcity[testFailed name='${assertion.name}' type='comparisonFailure' expected='expected|' quotes|'' actual='actual |' with |' quotes']`,
     'escapes quotes')
 })
 

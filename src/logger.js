@@ -55,7 +55,7 @@ Logger.prototype.failAssertion = function () {
   if (this.assertion.error && this.assertion.error.expected && this.assertion.error.actual) {
         const expected = this.assertion.error.expected.replace(/'/g, '|\'')
         const actual = this.assertion.error.actual.replace(/'/g, '|\'')
-        output = `${output} expected='${expected}' actual='${actual}'`
+        output = `${output} type='comparisonFailure' expected='${expected}' actual='${actual}'`
   }
 
   this.output.push(`\n##teamcity[${output}]`)
