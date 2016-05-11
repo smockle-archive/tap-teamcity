@@ -7,6 +7,14 @@ function timeSince (time) {
   return new Date().getTime() - time
 }
 
+function assertionHasDetails (assertion) {
+    return assertion.error && assertion.error.expected && assertion.error.actual;
+}
+
+function sanitise (message) {
+    return message.replace(/'/g, '|\'');
+}
+
 /**
  * Logs TAP test and assertion data to a writable stream.
  * @module logger
@@ -52,10 +60,12 @@ Logger.prototype.startAssertion = function (assertion) {
  */
 Logger.prototype.failAssertion = function () {
   var output = `testFailed name='${this.assertion.name}'`
-  if (this.assertion.error && this.assertion.error.expected && this.assertion.error.actual) {
-        const expected = this.assertion.error.expected.replace(/'/g, '|\'')
-        const actual = this.assertion.error.actual.replace(/'/g, '|\'')
-        output = `${output} type='comparisonFailure' expected='${expected}' actual='${actual}'`
+  const assertion = this.assertion;
+
+  if (assertionHasDetails(assertion)) {
+    const expected = sanitise(assertion.error.expected);
+    const actual = sanitise(assertion.error.actual);
+    output = `${output} type='comparisonFailure' expected='${expected}' actual='${actual}'`
   }
 
   this.output.push(`\n##teamcity[${output}]`)
