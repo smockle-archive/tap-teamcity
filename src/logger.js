@@ -7,6 +7,14 @@ function timeSince (time) {
   return new Date().getTime() - time
 }
 
+function assertionHasDetails (assertion) {
+    return assertion.error && assertion.error.expected && assertion.error.actual;
+}
+
+function sanitise (message) {
+    return message.replace(/'/g, '|\'');
+}
+
 /**
  * Logs TAP test and assertion data to a writable stream.
  * @module logger
@@ -51,7 +59,16 @@ Logger.prototype.startAssertion = function (assertion) {
  * Logs assertion failed
  */
 Logger.prototype.failAssertion = function () {
-  this.output.push(`\n##teamcity[testFailed name='${this.assertion.name}']`)
+  var output = `testFailed name='${this.assertion.name}'`
+  const assertion = this.assertion;
+
+  if (assertionHasDetails(assertion)) {
+    const expected = sanitise(assertion.error.expected);
+    const actual = sanitise(assertion.error.actual);
+    output = `${output} type='comparisonFailure' expected='${expected}' actual='${actual}'`
+  }
+
+  this.output.push(`\n##teamcity[${output}]`)
 }
 
 /**

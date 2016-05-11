@@ -95,7 +95,7 @@ test('tapTeamCity, not ok assertion', (t) => {
   const checkFailed = (data) =>
     t.equal(
       data,
-      '\n##teamcity[testFailed name=\'second assert\']',
+      '\n##teamcity[testFailed name=\'second assert\' type=\'comparisonFailure\' expected=\'false\' actual=\'true\']',
       'streams assertion failed message'
     )
   const checkFinish = (data) =>
