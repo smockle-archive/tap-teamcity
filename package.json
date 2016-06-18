@@ -4,9 +4,11 @@
   "description": "Formats TAP output for TeamCity.",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/**/*.js",
+    "test": "tape test/**/*.js && snyk test",
     "teamcity": "tape test/**/*.js | ./bin/cmd.js",
-    "coverage": "istanbul cover tape test/**/*.js"
+    "coverage": "istanbul cover tape test/**/*.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -20,12 +22,14 @@
   "homepage": "https://github.com/smockle/tap-teamcity#readme",
   "dependencies": {
     "duplexer": "^0.1.1",
+    "snyk": "^1.14.3",
     "tap-out": "^1.4.1",
     "through2": "^2.0.1"
   },
   "bin": {
     "tap-teamcity": "bin/cmd.js"
   },
+  "snyk": true,
   "devDependencies": {
     "codeclimate-test-reporter": "^0.3.1",
     "coveralls": "^2.11.6",

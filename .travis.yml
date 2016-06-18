@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-- "6"
-- "6.2.0"
-- "4"
-- "4.4.5"
+- '6'
+- 6.2.0
+- '4'
+- 4.4.5
 notifications:
   email:
     on_success: change
@@ -17,7 +17,9 @@ after_script:
 - npm run coverage
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 - "./node_modules/.bin/codeclimate-test-reporter < ./coverage/lcov.info"
+- snyk auth $SNYK_TOKEN && snyk monitor
 env:
   global:
   - secure: DjeH1z8hreZMHOQqZPAmQVyZj3ETWROrBWE39m4KFyapSmDnbovS7PERhDJSbxMdVt8jOmKcwiv8Y12zUV+Aqk4fd7S5pfqS3Cnf30MBeuA/dku7g0uIKZCC2mhobYrtp6PidqW+zkLIfZL4zYGQxJ0TK3hfE+eG3mxvmJ0EHhMFgmgE7EQiaa3Evf5MJarSJFW8nTq47ZQbueh/Z528wjImnI5zmU2cpUcueCQjSvVibygl8lhTVu2Mikm06zA/I5Jpa9rTQw9+fLMRCFZnquLb2V3okPVfexNBNL8vc4A7HpdbfZ+dUSt8bzJNGxBxTf81ygXjrVAbEvk2arRROum8ChVBwwPobxgVBIG8zQRBZVvVyJLBmTPanldjUgJ0d+oMEp5Gu9xVAxZlryCapkDenF+sBtzjD2aJ0/7W4OjIW3WmX4dGPs99xk3dUmbXJWjVvTkvxGKaWDiF7hqrxN+FYPjt34GEypcqUU5z3FcCvhRyVhZGABtOHFD6UJXPgseIgWGn5UO6DLiKD8w0GUvvH9CD8SY4sRhXlDOlwCQTTmsShU5oxmqiCMV3EIWR0UplKR+q4aEib1e8P7vZTvDuaSJujmaEQE4rEyfyzjxmnN46f7mMt2/SfkBRwYQ4w/2+kYm+L6szIbF8o4Y63XduMEVk0fDDWRDHE0Pzuxk=
   - secure: p9kw3qga5nLdW7jGpTwZ7rlfDyeBumab7XPat6RpDz52HbDJKN/+brfyPkTaITrxQkPUe4XVyk/+G7h5EfAkCii9qFi/ldJyirHCSEKr8Lpsuea4sKgh/AvNGelv4dwP++uzw/r5gMa/OEvgtKknoQ8NOpyIeavWO+Ssj7afrrkeewZu5Sw3f8gp/HyLD1o1vG7igcv1IcOdGnOkxc7/n3No458syCtO5V3LqR5ghvNuNmUEI8dC2azQoygtk5BSuDsW4O9CseLZyHbBWOLvp6/TKnV1e2LWyHWWvAu79vBFQj85SZKTMR+2/RWqmNxDbG4QCERCzemolG8e4YZ99Ku0MYFtD0rd2P9az0gq5RF69avkJXNvTtRpASP7Vay29i2L0l96Btyx+OvAo07g2vtDeggsaaAb4nQ3r22buiLoJPta40wLUspgqTpV2y59DmFOY2mYMcGQG0sGJJwR2QURa2rtw/Qg08C+ver4avB3+xLZBQxIyzZdlyk+L1fIDrajUBAs7exWk/O4ce/p1JlXmDPo4IUhGch1wh0bGcVEH1yZYivyeGL1Z1/SF/+LKv3B2/R2ebnjyv/oCvowg5yu5lP+5nnno8BT8zBy+EyXXCU8plKKFOC0Q9gNCcr4l/LmfpYSbikSdJUmNCbsT6k9hGQgxiLBoymQRacxky8=
+  - secure: q/n5MRPjFTuXQY2RksicVl6CJk1A9VuT2p0u7+SrAxbrCKtnnz2uor/k8VherTXXX58Cpqmf5zEIKJdNDYWkeE71OZwB88HSjtUmOIWAc7ixg+L5fTtJnxGFt64PNdzcrfiBdhAUeGcoxq4mhKr7Eim0wAIzBqLS8dwVRP844TQlR5clg1v6w/KXQFDl5/CuECPOsZm89T0cGDSvWoP2cdrJWuHqS7ij4jvdD1ypb732eeVBmcBsHjB0eS9aQjvDnztw0GAnNYPoWNHWHKllVdm0olxQLlvYsSbC/Xr34uEkuvNhtCPiiof7ZPJMzjean2J8AW0w6T8BdtgcL1ubqJ/3c+RkAwpyHxCGxkN1K0P/NTmAomBQP7qi7Wx4q21Xzqh9oe2CvSCqVaThOFXg4yNI/9+5MdFBGSBUC372tyfhAasMGWx9P3kw1Db6XD/MmFzLy4EXX/9O8DelgTFOLUeMBn5X3/rQZweZdEI9Dp6qdoKpKVhOy6xGnvey0AKZVIwpnqRhrhLybRyLojxcecP0ZG0SxLaLVAh3tJpPqeQK3oTjOCd4KX3hHD9+mVw5TaeMvZcAvY/H2vGJFdlsg0g5q1nVqFRJ3W8/2WdUnHouvufL7KD2B271W7B1x6QDY1Xkox/tUhPLeibpS2s5h4PSKgTup1NxNbl3GrmZ5AU=
