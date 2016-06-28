@@ -41,6 +41,7 @@ function tapTeamCity () {
   parser.on('fail', (assertion) => {
     logger.failAssertion()
     logger.finishAssertion()
+    stream.failed = true
   })
 
   // Display everything finished
