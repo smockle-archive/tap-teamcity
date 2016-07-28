@@ -23,7 +23,7 @@
   "homepage": "https://github.com/smockle/tap-teamcity#readme",
   "dependencies": {
     "duplexer": "^0.1.1",
-    "snyk": "^1.14.3",
+    "snyk": "^1.15.0",
     "tap-out": "^1.4.1",
     "through2": "^2.0.1"
   },

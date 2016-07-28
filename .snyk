@@ -1,7 +1,10 @@
-version: v1.5.0
+version: v1.5.2
 ignore:
   'npm:minimatch:20160620':
     - snyk > recursive-readdir > minimatch:
         reason: No available upgrade or patch
         expires: '2016-07-23T07:59:51.807Z'
-patch: {}
+patch:
+  'npm:minimatch:20160620':
+    - snyk > recursive-readdir > minimatch:
+        patched: '2016-07-28T13:55:29.085Z'
