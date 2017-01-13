@@ -2,6 +2,11 @@
 init:
   - git config --global core.autocrlf input
 
+# environment variables
+environment:
+  SNYK_TOKEN:
+    secure: Bq1MJN1u1Vjv2RWMDHsFYiNHe1n36Kn/G1gxB9l92TckT1m58Is6VjEV2EK+L/iC
+
 # build cache to preserve files/folders between builds
 cache:
   - C:\Users\appveyor\AppData\Roaming\npm\node_modules -> package.json  # global npm modules
@@ -10,10 +15,10 @@ cache:
 
 # scripts that run after cloning repository
 install:
-  # Install node 6.2.x
-  - ps: Install-Product node 6.2
-  # Install npm 3.10.3
-  - npm install -g npm@3.10.3
+  # Install node 7
+  - ps: Install-Product node 7
+  # Install npm 4
+  - npm install -g npm@4
   # install modules
   - npm install
 
@@ -23,7 +28,7 @@ test_script:
   - node --version
   - npm --version
   # run tests
-  - npm test
+  - npm run test:cmd
 
 # Don't build with msbuild.
 build: off

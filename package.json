@@ -4,7 +4,9 @@
   "description": "Formats TAP output for TeamCity.",
   "main": "index.js",
   "scripts": {
-    "test": "tape \"test/**/*.js\" && snyk test",
+    "test": "npm run test:bash",
+    "test:bash": "tape \"tests/**/*.js\" && snyk auth $SNYK_TOKEN && snyk test",
+    "test:cmd": "tape \"tests/**/*.js\" && snyk auth %SNYK_TOKEN% && snyk test",
     "teamcity": "tape \"test/**/*.js\" | ./bin/cmd.js",
     "coverage": "istanbul cover tape \"test/**/*.js\"",
     "snyk-protect": "snyk protect",
