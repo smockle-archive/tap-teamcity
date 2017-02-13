@@ -8,6 +8,8 @@
 
 # tap-teamcity
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/smockle/tap-teamcity.svg)](https://greenkeeper.io/)
+
 Formats [TAP](https://testanything.org/tap-specification.html) output for TeamCity.
 
 ## Installation
