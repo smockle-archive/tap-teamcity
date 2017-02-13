@@ -5,6 +5,7 @@
 [![Test Coverage](https://codeclimate.com/github/smockle/tap-teamcity/badges/coverage.svg)](https://codeclimate.com/github/smockle/tap-teamcity/coverage)
 [![Coverage Status](https://coveralls.io/repos/github/smockle/tap-teamcity/badge.svg?branch=master)](https://coveralls.io/github/smockle/tap-teamcity?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/npm/randomly/badge.svg)](https://snyk.io/test/npm/randomly)
+[![Greenkeeper badge](https://badges.greenkeeper.io/smockle/tap-teamcity.svg)](https://greenkeeper.io/)
 
 # tap-teamcity
 
