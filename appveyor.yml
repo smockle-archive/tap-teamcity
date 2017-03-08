@@ -7,12 +7,6 @@ environment:
   SNYK_TOKEN:
     secure: Bq1MJN1u1Vjv2RWMDHsFYiNHe1n36Kn/G1gxB9l92TckT1m58Is6VjEV2EK+L/iC
 
-# build cache to preserve files/folders between builds
-cache:
-  - C:\Users\appveyor\AppData\Roaming\npm\node_modules -> package.json  # global npm modules
-  - C:\Users\appveyor\AppData\Roaming\npm-cache -> package.json         # npm cache
-  - node_modules -> package.json                                        # local npm modules
-
 # scripts that run after cloning repository
 install:
   # Install node 7
