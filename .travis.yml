@@ -6,9 +6,6 @@ notifications:
   email:
     on_success: change
     on_failure: always
-cache:
-  directories:
-  - node_modules
 before_install:
 - npm install -g npm@4
 after_script:
