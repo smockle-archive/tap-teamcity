@@ -8,11 +8,11 @@ function timeSince (time) {
 }
 
 function assertionHasDetails (assertion) {
-    return assertion.error && assertion.error.expected && assertion.error.actual;
+  return assertion.error && assertion.error.expected && assertion.error.actual
 }
 
 function sanitise (message) {
-    return message.replace(/'/g, '|\'');
+  return message.replace(/'/g, "|'")
 }
 
 /**
@@ -42,7 +42,9 @@ Logger.prototype.startTest = function (test) {
  */
 Logger.prototype.finishTest = function () {
   if (!this.test) return
-  this.output.push(`\n##teamcity[testSuiteFinished name='${this.test.name}' duration='${timeSince(this.testStartTime)}']`)
+  this.output.push(
+    `\n##teamcity[testSuiteFinished name='${this.test.name}' duration='${timeSince(this.testStartTime)}']`
+  )
 }
 
 /**
@@ -52,7 +54,9 @@ Logger.prototype.finishTest = function () {
 Logger.prototype.startAssertion = function (assertion) {
   this.assertionStartTime = new Date().getTime()
   this.assertion = assertion
-  this.output.push(`\n##teamcity[testStarted name='${this.assertion.name}' captureStandardOutput='true']`)
+  this.output.push(
+    `\n##teamcity[testStarted name='${this.assertion.name}' captureStandardOutput='true']`
+  )
 }
 
 /**
@@ -60,11 +64,11 @@ Logger.prototype.startAssertion = function (assertion) {
  */
 Logger.prototype.failAssertion = function () {
   var output = `testFailed name='${this.assertion.name}'`
-  const assertion = this.assertion;
+  const assertion = this.assertion
 
   if (assertionHasDetails(assertion)) {
-    const expected = sanitise(assertion.error.expected);
-    const actual = sanitise(assertion.error.actual);
+    const expected = sanitise(assertion.error.expected)
+    const actual = sanitise(assertion.error.actual)
     output = `${output} type='comparisonFailure' expected='${expected}' actual='${actual}'`
   }
 
@@ -75,7 +79,9 @@ Logger.prototype.failAssertion = function () {
  * Logs assertion finished
  */
 Logger.prototype.finishAssertion = function () {
-  this.output.push(`\n##teamcity[testFinished name='${this.assertion.name}' duration='${timeSince(this.assertionStartTime)}']`)
+  this.output.push(
+    `\n##teamcity[testFinished name='${this.assertion.name}' duration='${timeSince(this.assertionStartTime)}']`
+  )
 }
 
 module.exports = Logger
