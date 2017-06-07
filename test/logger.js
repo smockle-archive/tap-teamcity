@@ -1,6 +1,6 @@
 const test = require('tape')
 const through = require('through2')
-const Logger = require('../src/logger')
+const Logger = require('../lib/logger')
 
 test('Logger.constructor', t => {
   t.plan(2)
@@ -21,7 +21,7 @@ test('Logger.prototype.startTest', t => {
     result += d
   })
   const logger = Logger(output)
-  const test = {name: 'TestName'}
+  const test = { name: 'TestName' }
   logger.startTest(test)
 
   // 3
@@ -55,7 +55,7 @@ test('Logger.prototype.finishTest', t => {
   logger.finishTest()
   t.equal(result, '', 'terminates early when this.test is unset')
   // 8
-  const test = {name: 'TestName'}
+  const test = { name: 'TestName' }
   logger.startTest(test)
   result = ''
   logger.finishTest()
@@ -78,7 +78,7 @@ test('Logger.prototype.startAssertion', t => {
     result += d
   })
   const logger = Logger(output)
-  const assertion = {name: 'AssertionName'}
+  const assertion = { name: 'AssertionName' }
   logger.startAssertion(assertion)
 
   // 9
@@ -109,7 +109,7 @@ test('Logger.prototype.failAssertion', t => {
   const logger = Logger(output)
   const assertion = {
     name: 'AssertionName',
-    error: {expected: 'expected', actual: 'actual'}
+    error: { expected: 'expected', actual: 'actual' }
   }
   logger.startAssertion(assertion)
   result = ''
@@ -118,7 +118,8 @@ test('Logger.prototype.failAssertion', t => {
   // 13
   t.equal(
     result,
-    `\n##teamcity[testFailed name='${assertion.name}' type='comparisonFailure' expected='${assertion.error.expected}' actual='${assertion.error.actual}']`,
+    `\n##teamcity[testFailed name='${assertion.name}' type='comparisonFailure' expected='${assertion
+      .error.expected}' actual='${assertion.error.actual}']`,
     'pushes assertion fail string to output stream'
   )
 })
@@ -133,7 +134,7 @@ test('Logger.prototype.failAssertion with quotes', t => {
   const logger = Logger(output)
   const assertion = {
     name: 'AssertionName',
-    error: {expected: "expected' quotes'", actual: "actual ' with ' quotes"}
+    error: { expected: "expected' quotes'", actual: "actual ' with ' quotes" }
   }
   logger.startAssertion(assertion)
   result = ''
@@ -155,7 +156,7 @@ test('Logger.prototype.failAssertion without error', t => {
     result += d
   })
   const logger = Logger(output)
-  const assertion = {name: 'AssertionName'}
+  const assertion = { name: 'AssertionName' }
   logger.startAssertion(assertion)
   result = ''
   logger.failAssertion()
@@ -176,7 +177,7 @@ test('Logger.prototype.finishAssertion', t => {
     result += d
   })
   const logger = Logger(output)
-  const assertion = {name: 'AssertionName'}
+  const assertion = { name: 'AssertionName' }
   logger.startAssertion(assertion)
   result = ''
   logger.finishAssertion()

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const tapSpec = require('../index.js')()
+const tapSpec = require('../lib/tap-teamcity.js')()
 
 process.stdin.pipe(tapSpec).pipe(process.stdout)
 
