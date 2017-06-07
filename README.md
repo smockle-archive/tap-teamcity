@@ -1,7 +1,8 @@
 [![npm](https://img.shields.io/npm/v/tap-teamcity.svg)](https://www.npmjs.com/package/tap-teamcity)
 [![Build Status](https://travis-ci.org/smockle/tap-teamcity.svg?branch=master)](https://travis-ci.org/smockle/tap-teamcity)
 [![Build status](https://ci.appveyor.com/api/projects/status/ms9rme11nk1a5auq?svg=true)](https://ci.appveyor.com/project/smockle/tap-teamcity)
-[![Coverage Status](https://coveralls.io/repos/github/smockle/tap-teamcity/badge.svg?branch=master)](https://coveralls.io/github/smockle/tap-teamcity?branch=master)
+[![Code Climate](https://codeclimate.com/github/smockle/tap-teamcity/badges/gpa.svg)](https://codeclimate.com/github/smockle/tap-teamcity)
+[![Test Coverage](https://codeclimate.com/github/smockle/tap-teamcity/badges/coverage.svg)](https://codeclimate.com/github/smockle/tap-teamcity/coverage)
 [![Known Vulnerabilities](https://snyk.io/test/npm/randomly/badge.svg)](https://snyk.io/test/npm/randomly)
 [![Greenkeeper badge](https://badges.greenkeeper.io/smockle/tap-teamcity.svg)](https://greenkeeper.io/)
 
