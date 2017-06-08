@@ -3,7 +3,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/ms9rme11nk1a5auq?svg=true)](https://ci.appveyor.com/project/smockle/tap-teamcity)
 [![Code Climate](https://codeclimate.com/github/smockle/tap-teamcity/badges/gpa.svg)](https://codeclimate.com/github/smockle/tap-teamcity)
 [![Test Coverage](https://codeclimate.com/github/smockle/tap-teamcity/badges/coverage.svg)](https://codeclimate.com/github/smockle/tap-teamcity/coverage)
-[![Known Vulnerabilities](https://snyk.io/test/npm/randomly/badge.svg)](https://snyk.io/test/npm/randomly)
+[![Known Vulnerabilities](https://snyk.io/test/github/smockle/tap-teamcity/badge.svg)](https://snyk.io/test/github/smockle/tap-teamcity)
 [![Greenkeeper badge](https://badges.greenkeeper.io/smockle/tap-teamcity.svg)](https://greenkeeper.io/)
 
 # tap-teamcity
