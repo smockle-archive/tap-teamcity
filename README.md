@@ -1,11 +1,11 @@
+# tap-teamcity
+
 [![npm](https://img.shields.io/npm/v/tap-teamcity.svg)](https://www.npmjs.com/package/tap-teamcity)
 [![Build Status](https://travis-ci.org/smockle/tap-teamcity.svg?branch=master)](https://travis-ci.org/smockle/tap-teamcity)
 [![Build status](https://ci.appveyor.com/api/projects/status/ms9rme11nk1a5auq?svg=true)](https://ci.appveyor.com/project/smockle/tap-teamcity)
 [![codecov](https://codecov.io/gh/smockle/tap-teamcity/branch/master/graph/badge.svg)](https://codecov.io/gh/smockle/tap-teamcity)
 [![Known Vulnerabilities](https://snyk.io/test/github/smockle/tap-teamcity/badge.svg)](https://snyk.io/test/github/smockle/tap-teamcity)
 [![Greenkeeper badge](https://badges.greenkeeper.io/smockle/tap-teamcity.svg)](https://greenkeeper.io/)
-
-# tap-teamcity
 
 Formats [TAP](https://testanything.org/tap-specification.html) output for TeamCity.
 
