@@ -109,3 +109,29 @@ test('tapTeamCity, not ok assertion', t => {
 
   tapStream.pipe(tapTeamCity()).pipe(assertStream)
 })
+
+test('tapTeamCity, escaping', t => {
+  t.plan(3)
+
+  const input = ["# escaped characters: ' | [ ]"]
+  const tapStream = new TapStream(input)
+
+  const expectedEscaping = "escaped characters: |' || |[ |]"
+  const checkStart = data =>
+    t.equal(
+      data,
+      `\n##teamcity[testSuiteStarted name='${expectedEscaping}']`,
+      'escapes special characters (in test start message)'
+    )
+  const checkFinish = data =>
+    t.ok(
+      data.startsWith(
+        `\n##teamcity[testSuiteFinished name='${expectedEscaping}'`
+      ),
+      'escapes special characters (in test end message)'
+    )
+  const assertStream = new AssertStream([checkStart, checkFinish])
+  assertStream.on('finish', () => t.ok(true, 'ends'))
+
+  tapStream.pipe(tapTeamCity()).pipe(assertStream)
+})
