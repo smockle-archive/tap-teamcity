@@ -2,11 +2,11 @@
   "name": "tap-teamcity",
   "version": "2.1.0",
   "description": "Formats TAP output for TeamCity.",
-  "main": "lib/index.js",
+  "main": "lib/index",
   "scripts": {
-    "test": "tape \"test/**/*.js\" | colortape",
-    "teamcity": "tape \"test/**/*.js\" | ./bin/cmd.js",
-    "coverage": "nyc --reporter=lcov tape \"test/**/*.js\" | colortape",
+    "test": "node -r @std/esm test/index.mjs | colortape",
+    "teamcity": "node -r @std/esm test/index.mjs | ./bin/cmd.js",
+    "coverage": "nyc --require @std/esm --extension .mjs --reporter=lcov node test/index.mjs | colortape",
     "postcoverage": "nyc report",
     "prepublish": "npm test",
     "precommit": "lint-staged"
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/smockle/tap-teamcity#readme",
   "dependencies": {
+    "@std/esm": "^0.5.1",
     "duplexer": "^0.1.1",
     "tap-out": "^2.0.0",
     "through2": "^2.0.3"
@@ -30,10 +31,13 @@
     "tap-teamcity": "bin/cmd.js"
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,mjs}": [
       "./node_modules/.bin/prettier-eslint --write",
       "git add"
     ]
+  },
+  "@std/esm": {
+    "cjs": true
   },
   "devDependencies": {
     "codecov": "^2.2.0",

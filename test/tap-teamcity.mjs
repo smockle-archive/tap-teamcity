@@ -1,7 +1,7 @@
-const stream = require('stream')
-const util = require('util')
-const test = require('tape')
-const tapTeamCity = require('../lib/tap-teamcity')
+import tapTeamCity from '../lib/tap-teamcity'
+import stream from 'stream'
+import util from 'util'
+import test from 'tape'
 
 // Readable stream to load fake TAP output
 const TapStream = function (data) {

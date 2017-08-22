@@ -1,6 +1,6 @@
-const test = require('tape')
-const through = require('through2')
-const Logger = require('../lib/logger')
+import Logger from '../lib/logger'
+import test from 'tape'
+import through from 'through2'
 
 test('Logger.constructor', t => {
   t.plan(2)
