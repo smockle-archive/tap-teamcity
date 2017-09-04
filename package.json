@@ -4,9 +4,11 @@
   "description": "Formats TAP output for TeamCity.",
   "main": "lib/index",
   "scripts": {
+    "debug": "node --nolazy --inspect-brk=5858 -r @std/esm test/index.mjs",
     "test": "node -r @std/esm test/index.mjs | colortape",
     "teamcity": "node -r @std/esm test/index.mjs | ./bin/cmd.js",
-    "coverage": "nyc --require @std/esm --extension .mjs --reporter=lcov node test/index.mjs | colortape",
+    "coverage":
+      "nyc --require @std/esm --extension .mjs --reporter=lcov node test/index.mjs | colortape",
     "postcoverage": "nyc report",
     "prepublish": "npm test",
     "precommit": "lint-staged"
@@ -31,10 +33,7 @@
     "tap-teamcity": "bin/cmd.js"
   },
   "lint-staged": {
-    "*.{js,mjs}": [
-      "./node_modules/.bin/prettier-eslint --write",
-      "git add"
-    ]
+    "*.{js,mjs}": ["./node_modules/.bin/prettier-eslint --write", "git add"]
   },
   "@std/esm": {
     "cjs": true
