@@ -2,7 +2,8 @@
   "name": "tap-teamcity",
   "version": "3.0.0",
   "description": "Formats TAP output for TeamCity.",
-  "main": "lib/index",
+  "main": "lib/tap-teamcity.js",
+  "module": "lib/tap-teamcity.mjs",
   "scripts": {
     "debug": "node --nolazy --inspect-brk=5858 -r @std/esm test/index.mjs",
     "test": "node -r @std/esm test/index.mjs | colortape",
