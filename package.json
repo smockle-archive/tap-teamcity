@@ -7,8 +7,7 @@
     "debug": "node --nolazy --inspect-brk=5858 -r @std/esm test/index.mjs",
     "test": "node -r @std/esm test/index.mjs | colortape",
     "teamcity": "node -r @std/esm test/index.mjs | ./bin/cmd.js",
-    "coverage":
-      "nyc --require @std/esm --extension .mjs --reporter=lcov node test/index.mjs | colortape",
+    "coverage": "nyc --require @std/esm --extension .mjs --reporter=lcov node test/index.mjs | colortape",
     "postcoverage": "nyc report",
     "prepublishOnly": "npm test",
     "precommit": "lint-staged"
@@ -33,7 +32,10 @@
     "tap-teamcity": "bin/cmd.js"
   },
   "lint-staged": {
-    "*.{js,mjs}": ["./node_modules/.bin/prettier-eslint --write", "git add"]
+    "*.{js,mjs}": [
+      "./node_modules/.bin/prettier-eslint --write",
+      "git add"
+    ]
   },
   "@std/esm": {
     "cjs": true
@@ -50,7 +52,7 @@
     "husky": "^0.14.0",
     "lint-staged": "^4.0.0",
     "nyc": "^11.0.2",
-    "prettier-eslint-cli": "^4.0.0",
+    "prettier-eslint-cli": "^4.3.0",
     "tape": "^4.4.0"
   }
 }
