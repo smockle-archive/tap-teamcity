@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/smockle/tap-teamcity#readme",
   "dependencies": {
-    "@std/esm": "^0.11.1",
+    "@std/esm": "^0.18.0",
     "duplexer": "^0.1.1",
     "tap-out": "^2.0.0",
     "through2": "^2.0.3"
