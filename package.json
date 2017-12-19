@@ -1,6 +1,6 @@
 {
   "name": "tap-teamcity",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Formats TAP output for TeamCity.",
   "main": "lib/tap-teamcity.js",
   "module": "lib/tap-teamcity.mjs",
